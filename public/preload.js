@@ -1,19 +1,4 @@
 const { ipcRenderer, contextBridge } = require("electron");
-//const photomgr = require("./models/personmgr");
-
-
-// const get_photoNames = () => {
-//   console.log("Preload > get_photoNames");
-//   return photomgr.get_photoNames();
-// }
-// contextBridge.exposeInMainWorld("TreeApi", {
-
-//   get_photoNames: get_photoNames
-
-// })
-
-
-
 
 /**
  * contextBridge allows us controlled, secure, two-way IPC communication
@@ -21,8 +6,7 @@ const { ipcRenderer, contextBridge } = require("electron");
  * object.
  * bear in mind none of this api will come up on your intellisense, so
  * you will have to understand the implementations yourself.
- * i've written example code in /src/components/Tree.js of some basic
- * implementations so you're not completely on your own
+ * examples of general implementations in Home.js
  */
 contextBridge.exposeInMainWorld("TreeAPI", {
   /**
@@ -31,31 +15,15 @@ contextBridge.exposeInMainWorld("TreeAPI", {
    * and send the information back through the
    * passed callback function
    *
-   * 
-   * 
    * @param {*} callback  front-end db handling function
    *                      (our means of communication back to front-end)
-   * @param {*} args  some modifier, maybe sql code, so the back-end
-   *                  knows what to retrieve/process in the db
+   * @param {*} args      some modifier, maybe sql code, so the back-end
+   *                      knows what to retrieve/process in the db
    */
-  //  receiveDB: (callback, args) => {
-  //    args++;
-  //    callback(args);
-    
-    receiveDB: (type, ...params) => {
-      return ipcRenderer.invoke('receiveDB', [type, ...params]);
-    
-  },
 
-  
-  
-  //New stuff (please take a look lol)
-  // insertPerson: (personData, callback) => {
-  //   ipcRenderer.send('insert-person', personData);
-  //   ipcRenderer.once('insert-person-response', (_, arg) => {
-  //     callback(arg);
-  //   });
-  // },
+  receiveDB: (callback, args) => {
+    //TODO: use args to get requested data, store it, send it back via callback
+  },
 
   /**
    * currently being used in the above-mentioned callback function
@@ -73,14 +41,12 @@ contextBridge.exposeInMainWorld("TreeAPI", {
   fatalReply: (args) => ipcRenderer.send("fatal-reply", args),
 
   /**
-   * when the front-end needs to send data to be put
-   * into the database, rather than retrieved from it
+   * when the front-end needs to send data to be put into/removed
+   * from the database, rather than retrieved from it
+   *
+   * (in electron.js it will just run SQL code, insertion/deletion are the same)
    *
    * @param {*} args (prob sql code) that needs to be entered into the db
    */
   sendDB: (args) => ipcRenderer.send("send-db", args)
 });
-
-
-
-
