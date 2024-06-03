@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./Tree.css";
+import "./Vine.css";
 
-class Tree extends Component {
+class Vine extends Component {
   componentDidMount() {}
 
   render() {
@@ -9,4 +9,4 @@ class Tree extends Component {
   }
 }
 
-export default Tree;
+export default Vine;

@@ -1,6 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import './Layout.css'; 
-
+import "./Layout.css";
 
 const Layout = () => {
   return (
@@ -11,7 +10,7 @@ const Layout = () => {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/tree">Tree</Link>
+            <Link to="/vine">Vine</Link>
           </li>
         </ul>
       </nav>

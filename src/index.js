@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
-import Tree from "./components/Tree";
+import Vine from "./components/Vine";
 import TitleBar from "./components/TitleBar";
 
 //this is all insanely basic react stuff, so I'm not gonna go through it
@@ -24,8 +24,8 @@ export default function App() {
               element={<Home />}
             />
             <Route
-              path="/tree"
-              element={<Tree />}
+              path="/vine"
+              element={<Vine />}
             />
           </Route>
         </Routes>

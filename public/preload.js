@@ -20,7 +20,6 @@ contextBridge.exposeInMainWorld("TreeAPI", {
    * @param {*} args      some modifier, maybe sql code, so the back-end
    *                      knows what to retrieve/process in the db
    */
-
   receiveDB: (callback, args) => {
     //TODO: use args to get requested data, store it, send it back via callback
   },
