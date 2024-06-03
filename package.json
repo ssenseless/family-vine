@@ -1,0 +1,68 @@
+{
+  "name": "family_vine",
+  "productName": "Family Vine",
+  "version": "1.0.0",
+  "description": "Cross-platform image metadata customization application",
+  "main": "public/electron.js",
+  "homepage": "./",
+  "dist": "electron-builder",
+  "build": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BaseerAK/CapstoneGroupO.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BaseerAK/CapstoneGroupO/issues"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^8.2.2",
+    "electron": "^29.0.1",
+    "electron-builder": "^24.12.0",
+    "electron-is-dev": "^2.0.0",
+    "i": "^0.3.7",
+    "nodemon": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
+    "react-scripts": "5.0.1",
+    "sqlite3": "^5.1.6",
+    "wait-on": "^7.2.0",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start-electron": "nodemon --watch ./public/* --exec electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "rebuild": "electron-rebuild -f -w sqlite3",
+    "dev": "concurrently \"cross-env BROWSER=none npm run start-react\" \"wait-on http://localhost:3000 && npm run start-electron\"",
+    "pack-app": "npm run build && electron-builder --dir",
+    "pack-build": "electron-builder --dir",
+    "start-react": "react-scripts start",
+    "build-react": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

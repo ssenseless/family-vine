@@ -1,0 +1,35 @@
+.home-container {
+    text-align: center; /* Center align the content */
+    padding: 50px 20px; /* Padding for spacing */
+    color: #34495E; /* Dark color for text for readability */
+  }
+  
+  .home-container h1 {
+    margin-bottom: 20px; /* Spacing below the header */
+  }
+  
+  .upload-btn {
+    background-color: #3498DB; /* Vibrant color for the button */
+    color: white; /* White text */
+    padding: 10px 20px; /* Padding around the text */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1em; /* Standard font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .upload-btn:hover {
+    background-color: #2980B9; /* Darker shade on hover */
+  }
+  
+  /* Style adjustments for file input for consistency */
+  .file-input {
+    margin: 20px 0; /* Margin for spacing */
+    padding: 10px; /* Padding for size */
+    border: 2px dashed #BDC3C7; /* Dashed border for the input */
+    color: #95A5A6; /* Light grey color for text */
+    background-color: #ECF0F1; /* Light background color */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+  

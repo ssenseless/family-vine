@@ -1,0 +1,112 @@
+/* Container for the image grid */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Stack image and description */
+  padding: 20px;
+  z-index: 1000; /* Ensure it's above other content */
+}
+.lightbox .image-content {
+  position: relative; /* This makes it the reference point for the text boxes */
+  display: inline-block; /* Adjust as necessary to fit the image */
+}
+
+.lightbox img {
+  max-width: 80%; /* Limit image size */
+  max-height: 80vh;
+  margin-bottom: 20px; /* Space between image and description */
+}
+
+.lightbox p {
+  color: white;
+  text-align: center;
+  max-width: 80%;
+}
+.text-box {
+  position: absolute;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  /* Ensure your font size is appropriate for the lightbox view */
+}
+.details {
+  color: white;
+  text-align: center;
+  max-width: 80%;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px; /* Spacing between images */
+  padding: 20px; /* Padding around the grid */
+}
+
+/* Individual image container */
+.image-container {
+  position: relative;
+  overflow: hidden; /* Ensures the shadow and border radius applies to children */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.2s ease; /* Smooth transition for hover effect */
+}
+
+/* Styles for the image itself */
+.image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Match container's border-radius */
+  transition: transform 0.2s ease; /* Smooth transition for hover effect */
+}
+
+/* Styles for the text boxes */
+.text-box {
+  position: absolute;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  color: #fff; /* White text color */
+  border-radius: 4px; /* Rounded corners for text boxes */
+  margin: 5px; /* Margin from the container's edges */
+  font-size: 0.9em; /* Slightly smaller font size */
+}
+
+/* Position classes for text boxes */
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* Hover effect for the image container */
+.image-container:hover {
+  transform: scale(1.03); /* Slightly enlarge on hover */
+}
+
+/* Hover effect for images to slightly zoom in */
+.image-container img:hover {
+  transform: scale(1.1);
+}
