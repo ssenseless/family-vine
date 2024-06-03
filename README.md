@@ -1,58 +1,60 @@
-## Update (2024-04-28) - from DB branch
-Database mgr files are complete and set up. The Database works smoothly.
-The Create operations are complete in electron.js, and tested in home.js.
-RUD Operations are still being worked on, some are already written but need to be tested.
-## Database Update (2024-03-09) 
+<a name="readme-top"></a>
 
-Started implementation for database:
+<h3 align="center">Family Vine</h3>
 
--Created  'models' folder which contains manager files for the entities. 
-    -Each manager file basically manages query code for its respective entity
+  <p align="center">
+    Family Vine is an image metadata alteration software with use-cases ranging from genealogy and ancestry to social media. These docs should be useful for setting up the dev environment and understanding the basics of how the software is currently implemented.
+  </p>
+</div>
 
--Added some new code for 'insert-person' query in electron.js and preload.js. However, it really needs to be looked at before moving on for other queries. 
+### Built With
 
-- The following files/tables reference foreign keys, which means we need to ensure chorological creation 
-so that nothing gets messed up. persontagsmgr.js , loactiontagsmgr.js
+* Electron (Backend framework)
+* React (Frontend Library)
+* SqLite3 (Embedded Database Design)
 
-## Update (2024-02-26)
+<!-- GETTING STARTED -->
+## Getting Started
 
-I have updated all of the below and automated the .json so all you need to get the dev enviro up and running are the following
+The dev environment is quite simple to set up, though it has only been actively tested on Windows (x64) machines in VS Code. There are certain demo wrappers that exist to accommodate MacOS/Linux users, though they are not verbose and for all intents and purposes, are completely untested.
 
-- git clone the repo
+### Prerequisites
 
-- npm i
+* NPM is used throughout the project, and is the essence of the build system, testing system, and collation manager. 
+  ```sh
+  npm install -g npm
+  ```
+* VS Code can be downloaded for free [here](https://code.visualstudio.com/download).
+* When using SqLite3 it embeds the database onto the local disk with a ```.db``` file. Though not explicitly necessary, nor a dependency for the project, there exists an application called [DB Browser](https://sqlitebrowser.org/dl/) that lets you visualize, create, store, and remove these files. It is strongly recommended for you to use this program.
 
-- npm run dev (opens react on port 3000, then waits for that to be available before launching electron concurrently)
+### Installation
 
-if the above doesn't work, check your node version is the latest, and if not ask me specifically (carson) and I can potentially help because it is probably just a version control issue with one of the dependencies
+Once you have completed the above and have the development branch open in VS Code, open the terminal with <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd>.
 
-## dependencies (running list) [depr]
+Simply running ```npm i``` will install all currently versioned dependencies with automatic postinstall. 
 
-- npm i electron
+Next, running ```npm run dev``` will run the following script:
+https://github.com/ssenseless/family-vine/blob/cfe66c30f2dab1c8844bf46b3ed29ca3ab76b955/package.json#L41
+This script opens React on port 3000 (ensure that this is not blocked by other processes), then waits for it to become responsive before concurrently running Electron. This is all automatically assembled in dev mode, so it will automatically open devtools along with the application, though these dev flags are ignored during the actual building process, so the fully built application will not have these issues.
 
-- npm i electron-builder
+<!-- ROADMAP -->
+## Proposed Features/Issues
+See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
-- npm i electron-is-dev@2.0.0
+<!-- CONTRIBUTING -->
+## Contributing
 
-- npm i nodemon
+Contributions are typical as for any github project:
 
-- npm i concurrently
-
-- npm i wait-on
-
-- npm i sqlite3@5.1.6
-
-- npm i --save-dev cross-env
-
-- everything from react
-
-## possible dependencies [depr]
-
-- npm i resize-img
-
-## need to run [depr]
-
-- npm run postinstall
-
-
-
+1. Fork this repository
+2. Create your feature branch: 
+```sh
+git checkout -b feature/feature-one
+```
+3. Stage, commit, and push your changes: 
+```sh
+git add .
+git commit -m 'new feature here'
+git push origin feature/feature-one
+```
+4. Open a Pull Request
