@@ -39,7 +39,7 @@ This script opens React on port 3000 (ensure that this is not blocked by other p
 
 <!-- ROADMAP -->
 ## Proposed Features/Issues
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/ssenseless/family-vine/issues) for a list of currently proposed features.
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -57,4 +57,4 @@ git add .
 git commit -m 'new feature here'
 git push origin feature/feature-one
 ```
-4. Open a Pull Request
+4. Open a pull request
