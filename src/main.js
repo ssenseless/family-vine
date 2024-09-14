@@ -1,5 +1,5 @@
-const { app, BrowserWindow } = require('electron');
-const path = require('node:path');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const { Media } = require("./db")
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -49,3 +49,23 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+// Handle IPC Messages
+async function createMedia() {
+  const { canceled, filePaths } = await dialog.showOpenDialog() 
+  console.log(canceled)
+  console.log(filePaths)
+  if (!canceled) {
+    await Media.create({filepath: filePaths[0]})
+  }
+}
+
+async function getMedia() {
+  return await Media.findAll();
+}
+
+app.whenReady().then(() => {
+  // Listen for events and call appropriate functions
+  ipcMain.handle('Media::createMedia', createMedia);
+  ipcMain.handle('Media::getMedia', getMedia);
+})

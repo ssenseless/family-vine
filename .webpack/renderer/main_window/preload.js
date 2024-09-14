@@ -283,9 +283,20 @@ eval("/** @typedef {\"info\" | \"warning\" | \"error\"} LogLevel */\n\n/** @type
 /*!************************!*\
   !*** ./src/preload.js ***!
   \************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("// See the Electron documentation for details on how to use preload scripts:\n// https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcHJlbG9hZC5qcyIsIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsid2VicGFjazovL2ZhbWlseS12aW5lLy4vc3JjL3ByZWxvYWQuanM/NmU0MCJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBTZWUgdGhlIEVsZWN0cm9uIGRvY3VtZW50YXRpb24gZm9yIGRldGFpbHMgb24gaG93IHRvIHVzZSBwcmVsb2FkIHNjcmlwdHM6XG4vLyBodHRwczovL3d3dy5lbGVjdHJvbmpzLm9yZy9kb2NzL2xhdGVzdC90dXRvcmlhbC9wcm9jZXNzLW1vZGVsI3ByZWxvYWQtc2NyaXB0c1xuIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBIiwiaWdub3JlTGlzdCI6W119\n//# sourceURL=webpack-internal:///./src/preload.js\n");
+eval("const {\n  contextBridge,\n  ipcRenderer\n} = __webpack_require__(/*! electron */ \"electron\");\ncontextBridge.exposeInMainWorld('electronAPI', {\n  createMedia: () => ipcRenderer.invoke('Media::createMedia'),\n  getMedia: () => ipcRenderer.invoke('Media::getMedia')\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvcHJlbG9hZC5qcyIsIm1hcHBpbmdzIjoiQUFBQSxNQUFNO0VBQUVBLGFBQWE7RUFBRUM7QUFBWSxDQUFDLEdBQUdDLG1CQUFPLENBQUMsMEJBQVUsQ0FBQztBQUUxREYsYUFBYSxDQUFDRyxpQkFBaUIsQ0FBQyxhQUFhLEVBQUU7RUFDN0NDLFdBQVcsRUFBRUEsQ0FBQSxLQUFNSCxXQUFXLENBQUNJLE1BQU0sQ0FBQyxvQkFBb0IsQ0FBQztFQUMzREMsUUFBUSxFQUFFQSxDQUFBLEtBQU1MLFdBQVcsQ0FBQ0ksTUFBTSxDQUFDLGlCQUFpQjtBQUN0RCxDQUFDLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9mYW1pbHktdmluZS8uL3NyYy9wcmVsb2FkLmpzPzZlNDAiXSwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgeyBjb250ZXh0QnJpZGdlLCBpcGNSZW5kZXJlciB9ID0gcmVxdWlyZSgnZWxlY3Ryb24nKVxuXG5jb250ZXh0QnJpZGdlLmV4cG9zZUluTWFpbldvcmxkKCdlbGVjdHJvbkFQSScsIHtcbiAgY3JlYXRlTWVkaWE6ICgpID0+IGlwY1JlbmRlcmVyLmludm9rZSgnTWVkaWE6OmNyZWF0ZU1lZGlhJyksXG4gIGdldE1lZGlhOiAoKSA9PiBpcGNSZW5kZXJlci5pbnZva2UoJ01lZGlhOjpnZXRNZWRpYScpLFxufSlcbiJdLCJuYW1lcyI6WyJjb250ZXh0QnJpZGdlIiwiaXBjUmVuZGVyZXIiLCJyZXF1aXJlIiwiZXhwb3NlSW5NYWluV29ybGQiLCJjcmVhdGVNZWRpYSIsImludm9rZSIsImdldE1lZGlhIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/preload.js\n");
+
+/***/ }),
+
+/***/ "electron":
+/*!***************************!*\
+  !*** external "electron" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("electron");
 
 /***/ }),
 
@@ -379,7 +390,7 @@ module.exports = require("events");
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("b7604118ff29cfec0a10")
+/******/ 		__webpack_require__.h = () => ("9858ea09c63fc1aa8469")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
